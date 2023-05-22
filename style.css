@@ -1,0 +1,24 @@
+body, html {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    background-color: rgb(228, 222, 212);
+}
+
+.create-book {
+    height: 6vh;
+    width: max(64px, 8vw);
+    border: none;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 12px;
+}
+
+.create-book:hover {
+    background-color: rgb(211, 204, 192);
+}
+
+.create-book:active {
+    background-color: rgb(189, 174, 148);
+}
