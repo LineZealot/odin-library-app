@@ -62,7 +62,6 @@ function library() {
     // append book item to the DOM and add class
     addBookToLibrary(newBook);
     createBookElement(newBook);
-    newBook.box.classList.add("book-item");
 
     // clear form and hide UI
     bookItemForm.body.style.display = "none";

@@ -7,6 +7,13 @@ html {
   background-color: rgb(228, 222, 212);
 }
 
+.bookshelf {
+    display: grid;
+    grid-template-columns: repeat(4, 25vw);
+    justify-items: center;
+    width: 100%;
+}
+
 .create-book {
   height: 6vh;
   width: max(64px, 8vw);
@@ -29,5 +36,11 @@ html {
 }
 
 .book-item {
+    display: flex;
+    flex-direction: column;
+    width: 22vw;
+    height: 22vw;
+    padding: 1vw;
     border: 1px solid black;
+    border-radius: 12px;
 }
