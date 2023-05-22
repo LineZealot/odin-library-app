@@ -27,3 +27,7 @@ html {
 .create-book-ui {
   display: none;
 }
+
+.book-item {
+    border: 1px solid black;
+}

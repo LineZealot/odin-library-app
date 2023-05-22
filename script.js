@@ -35,6 +35,9 @@ function library() {
     box.appendChild(textHeading);
     box.appendChild(textBody);
 
+    // add class names
+    box.className = "book-item";
+
     bookshelf.appendChild(box);
   }
 
@@ -55,12 +58,11 @@ function library() {
       bookItemForm.title.value,
       bookItemForm.author.value,
       bookItemForm.pageCount.value,
-      "yes"
     );
     // append book item to the DOM and add class
     addBookToLibrary(newBook);
     createBookElement(newBook);
-    newBook.className = "book-item";
+    newBook.box.classList.add("book-item");
 
     // clear form and hide UI
     bookItemForm.body.style.display = "none";
