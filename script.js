@@ -57,9 +57,10 @@ function library() {
       bookItemForm.pageCount.value,
       "yes"
     );
-    // append book item to the DOM
+    // append book item to the DOM and add class
     addBookToLibrary(newBook);
     createBookElement(newBook);
+    newBook.className = "book-item";
 
     // clear form and hide UI
     bookItemForm.body.style.display = "none";
