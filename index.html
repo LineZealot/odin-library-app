@@ -14,7 +14,7 @@
 
     <div class="bookshelf" id="bookshelf"></div>
 
-    <div class="ui-hidden">
+    <div class="create-book-ui" id="create-book-ui">
       <form action="post" class="book-details">
         <fieldset class="title-form">
           <label for="title-input" class="book-detail-label">Title:</label>
@@ -37,18 +37,18 @@
             <input
               type="radio"
               id="read-yet-yes"
-              name="read-yet-yes"
+              name="read-yet-radio"
               class="read-yet-radio"
             />
             <label for="read-yet-no">No</label>
             <input
               type="radio"
               id="read-yet-no"
-              name="read-yet-no"
+              name="read-yet-radio"
               class="read-yet-radio"
             />
           </div>
-          <button type="submit">Add Book</button>
+          <button type="button" class="book-details-submit" id="book-details-submit">Add Book</button>
         </fieldset>
       </form>
     </div>

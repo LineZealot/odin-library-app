@@ -1,6 +1,16 @@
 function library() {
   const bookshelf = document.getElementById("bookshelf");
 
+  // book item creation form elements
+  const bookItemForm = {
+    body: document.getElementById("create-book-ui"),
+    title: document.getElementById("title-input"),
+    author: document.getElementById("author-input"),
+    pageCount: document.getElementById("page-count-input"),
+    readYetYes: document.getElementById("read-yet-yes"),
+    submitButton: document.getElementById("book-details-submit"),
+  };
+
   const myLibrary = [];
 
   function Book(title, author, pages, read) {
@@ -32,12 +42,30 @@ function library() {
     myLibrary.push(x);
   }
 
+  // display book item creation form
   const newBookButton = document.getElementById("book-button");
-
   newBookButton.addEventListener("click", () => {
-    const newBook = new Book(prompt(), prompt(), prompt(), prompt());
+    bookItemForm.body.style.display = "flex";
+  });
+
+  // book item creation button
+  bookItemForm.submitButton.addEventListener("click", () => {
+    // create book item from form input
+    const newBook = new Book(
+      bookItemForm.title.value,
+      bookItemForm.author.value,
+      bookItemForm.pageCount.value,
+      "yes"
+    );
+    // append book item to the DOM
     addBookToLibrary(newBook);
     createBookElement(newBook);
+
+    // clear form and hide UI
+    bookItemForm.body.style.display = "none";
+    bookItemForm.title.value = "";
+    bookItemForm.author.value = "";
+    bookItemForm.pageCount.value = "";
   });
 
   // test existing books
