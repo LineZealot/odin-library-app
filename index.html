@@ -1,20 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JavaScript Object Books</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <button class="create-book" id="book-button">Add Book</button>
-    
-    <table id="bookshelf">
-        <div class="bookshelf" id="bookshelf">
-        </div>
-    </table>
-</body>
+
+    <div class="bookshelf" id="bookshelf"></div>
+
+    <div class="ui-hidden">
+      <form action="post" class="book-details">
+        <fieldset class="title-form">
+          <label for="title-input" class="book-detail-label">Title:</label>
+          <input type="text" name="title-input" id="title-input" />
+        </fieldset>
+        <fieldset class="author-form">
+          <label for="author-input" class="book-detail-label">Author:</label>
+          <input type="text" name="author-input" id="author-input" />
+        </fieldset>
+        <fieldset class="page-count-form">
+          <label for="page-count-input" class="book-detail-label">Pages:</label>
+          <input type="text" name="page-count-input" id="page-count-input" />
+        </fieldset>
+        <fieldset class="read-yet-form">
+          <legend id="read-yet-question" class="book-detail-label">
+            Have you read this book yet?
+          </legend>
+          <div class="book-details-radio-box">
+            <label for="read-yet-yes">Yes</label>
+            <input
+              type="radio"
+              id="read-yet-yes"
+              name="read-yet-yes"
+              class="read-yet-radio"
+            />
+            <label for="read-yet-no">No</label>
+            <input
+              type="radio"
+              id="read-yet-no"
+              name="read-yet-no"
+              class="read-yet-radio"
+            />
+          </div>
+          <button type="submit">Add Book</button>
+        </fieldset>
+      </form>
+    </div>
+  </body>
 </html>

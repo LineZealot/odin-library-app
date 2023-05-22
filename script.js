@@ -5,10 +5,10 @@ function library() {
 
   function Book(title, author, pages, read) {
     (this.title = title),
-    (this.author = author),
-    (this.pages = pages),
-    (this.read = read),
-    (this.info = function () {
+      (this.author = author),
+      (this.pages = pages),
+      (this.read = read),
+      (this.info = function () {
         return `${title} by ${author} with ${pages} pages, ${read}`;
       });
   }
@@ -38,7 +38,6 @@ function library() {
     const newBook = new Book(prompt(), prompt(), prompt(), prompt());
     addBookToLibrary(newBook);
     createBookElement(newBook);
-    console.log(myLibrary);
   });
 
   // test existing books
