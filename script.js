@@ -14,10 +14,10 @@ function library() {
   const myLibrary = [];
 
   function Book(title, author, pages, read) {
-    (this.title = title),
-      (this.author = author),
-      (this.pages = pages),
-      (this.read = read),
+    (this.title = title);
+      (this.author = author);
+      (this.pages = pages);
+      (this.read = read);
       (this.info = function () {
         return `${title} by ${author} with ${pages} pages, ${read}`;
       });
@@ -35,6 +35,11 @@ function library() {
 
     const removeButton = document.createElement("button");
     removeButton.textContent = "X";
+
+    removeButton.addEventListener("click", () => {
+      box.remove();
+      myLibrary.splice(myLibrary.indexOf(b), 1);
+    });
 
     // append the content elements to the container div
     box.appendChild(textHeading);
