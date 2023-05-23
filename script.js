@@ -24,22 +24,30 @@ function library() {
   }
 
   function createBookElement(b) {
+    // create book item constitute elements
     const box = document.createElement("div");
 
     const textHeading = document.createElement("h3");
     textHeading.textContent = b.title;
 
     const textBody = document.createElement("p");
-    textBody.textContent = `Written by ${b.author} has ${b.pages} pages, ${b.read}`;
+    textBody.textContent = `By ${b.author} contains ${b.pages} pages ${b.read}`;
 
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "X";
+
+    // append the content elements to the container div
     box.appendChild(textHeading);
     box.appendChild(textBody);
+    box.appendChild(removeButton);
 
     // add class names
     box.className = "book-item";
     textHeading.className = "book-item-heading";
     textBody.className = "book-item-body";
+    removeButton.className = "book-item-delete";
 
+    // append the book item to the DOM
     bookshelf.appendChild(box);
   }
 
@@ -59,7 +67,7 @@ function library() {
     const newBook = new Book(
       bookItemForm.title.value,
       bookItemForm.author.value,
-      bookItemForm.pageCount.value,
+      bookItemForm.pageCount.value
     );
     // append book item to the DOM and add class
     addBookToLibrary(newBook);
