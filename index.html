@@ -18,15 +18,20 @@
       <form action="post" class="book-details">
         <fieldset class="title-form">
           <label for="title-input" class="book-detail-label">Title:</label>
-          <input type="text" name="title-input" id="title-input" />
+          <input type="text" name="title-input" id="title-input" required />
         </fieldset>
         <fieldset class="author-form">
           <label for="author-input" class="book-detail-label">Author:</label>
-          <input type="text" name="author-input" id="author-input" />
+          <input type="text" name="author-input" id="author-input" required />
         </fieldset>
         <fieldset class="page-count-form">
           <label for="page-count-input" class="book-detail-label">Pages:</label>
-          <input type="text" name="page-count-input" id="page-count-input" />
+          <input
+            type="text"
+            name="page-count-input"
+            id="page-count-input"
+            required
+          />
         </fieldset>
         <fieldset class="read-yet-form">
           <legend id="read-yet-question" class="book-detail-label">
@@ -39,6 +44,7 @@
               id="read-yet-yes"
               name="read-yet-radio"
               class="read-yet-radio"
+              required
             />
             <label for="read-yet-no">No</label>
             <input
@@ -46,9 +52,16 @@
               id="read-yet-no"
               name="read-yet-radio"
               class="read-yet-radio"
+              required
             />
           </div>
-          <button type="button" class="book-details-submit" id="book-details-submit">Add Book</button>
+          <button
+            type="submit"
+            class="book-details-submit"
+            id="book-details-submit"
+          >
+            Add Book
+          </button>
         </fieldset>
       </form>
     </div>
