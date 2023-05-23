@@ -7,7 +7,8 @@ html {
   background-color: black;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  ---dark-mode-grey: rgb(34, 34, 34);
+  ---dark-mode-grey: rgb(29, 29, 33);
+  ---lighter-grey: rgb(50, 50, 59);
 }
 
 .create-book {
@@ -34,16 +35,27 @@ html {
   display: none;
   position: absolute;
   top: 35%;
-  border: 1px solid white;
+  height: 20vw;
   border-radius: 12px;
+  background-color: var(---lighter-grey);
 }
 
 .book-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   color: white;
 }
 
 .book-details > * {
   border: none;
+}
+
+.author-form,
+.title-form,
+.page-count-form {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
 }
 
 .bookshelf {
@@ -98,11 +110,11 @@ html {
 }
 
 .book-item-delete:hover {
-    color: white;
-    background-color: red;
+  color: white;
+  background-color: red;
 }
 
 .book-item-delete:active {
-    color: rgb(185, 185, 185);
-    background-color: rgb(187, 0, 0);
+  color: rgb(185, 185, 185);
+  background-color: rgb(187, 0, 0);
 }
