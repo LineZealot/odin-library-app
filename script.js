@@ -37,6 +37,8 @@ function library() {
 
     // add class names
     box.className = "book-item";
+    textHeading.className = "book-item-heading";
+    textBody.className = "book-item-body";
 
     bookshelf.appendChild(box);
   }
