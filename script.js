@@ -1,11 +1,6 @@
 function library() {
   const bookshelf = document.getElementById("bookshelf");
 
-  const readYet = {
-    yes: "Already read",
-    no: "Not read yet",
-  };
-
   // book item creation form elements
   const bookItemForm = {
     body: document.getElementById("create-book-ui"),
@@ -37,7 +32,33 @@ function library() {
     textBody.textContent = `By ${b.author} contains ${b.pages} pages`;
 
     const readYetDisplay = document.createElement("p");
-    readYetDisplay.textContent = b.read ? readYet.yes : readYet.no;
+    readYetDisplay.textContent = "Read yet?";
+
+    const readYetButton = document.createElement("button");
+    readYetButton.textContent = b.read ? "Yes" : "No";
+    readYetButton.style.backgroundColor = b.read ? "green" : "red";
+    readYetButton.value = b.read ? "true" : "false";
+    readYetButton.addEventListener("click", () => {
+      if (readYetButton.value === "true") {
+        readYetButton.textContent = "No";
+        readYetButton.style.backgroundColor = "red";
+        readYetButton.value = "false";
+        const updatedBook = new Book(b.title, b.author, b.pages, false);
+        const index = myLibrary.indexOf(b);
+        if (index !== -1) {
+          myLibrary[index] = updatedBook;
+        }
+      } else {
+        readYetButton.textContent = "Yes";
+        readYetButton.style.backgroundColor = "green";
+        readYetButton.value = "true";
+        const updatedBook = new Book(b.title, b.author, b.pages, true);
+        const index = myLibrary.indexOf(b);
+        if (index !== -1) {
+          myLibrary[index] = updatedBook;
+        }
+      }
+    });
 
     const removeButton = document.createElement("button");
     removeButton.textContent = "X";
@@ -51,6 +72,7 @@ function library() {
     box.appendChild(textHeading);
     box.appendChild(textBody);
     box.appendChild(readYetDisplay);
+    box.appendChild(readYetButton);
     box.appendChild(removeButton);
 
     // add class names
@@ -58,6 +80,8 @@ function library() {
     textHeading.className = "book-item-heading";
     textBody.className = "book-item-body";
     removeButton.className = "book-item-delete";
+    readYetDisplay.className = "book-item-read-yet-question";
+    readYetButton.className = "book-item-read-yet-button";
 
     // append the book item to the DOM
     bookshelf.appendChild(box);
@@ -84,7 +108,7 @@ function library() {
       bookItemForm.pageCount.value,
       readValue
     );
-    // append book item to the DOM and add class
+    // append book item to the DOM
     addBookToLibrary(newBook);
     createBookElement(newBook);
 
