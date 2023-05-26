@@ -1,6 +1,11 @@
 function library() {
   const bookshelf = document.getElementById("bookshelf");
 
+  const readYet = {
+    yes: "Already read",
+    no: "Not read yet",
+  };
+
   // book item creation form elements
   const bookItemForm = {
     body: document.getElementById("create-book-ui"),
@@ -8,19 +13,17 @@ function library() {
     author: document.getElementById("author-input"),
     pageCount: document.getElementById("page-count-input"),
     readYetYes: document.getElementById("read-yet-yes"),
+    readYetNo: document.getElementById("read-yet-no"),
     submitButton: document.getElementById("book-details-submit"),
   };
 
   const myLibrary = [];
 
   function Book(title, author, pages, read) {
-    (this.title = title);
-      (this.author = author);
-      (this.pages = pages);
-      (this.read = read);
-      (this.info = function () {
-        return `${title} by ${author} with ${pages} pages, ${read}`;
-      });
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read === "true";
   }
 
   function createBookElement(b) {
@@ -31,7 +34,10 @@ function library() {
     textHeading.textContent = b.title;
 
     const textBody = document.createElement("p");
-    textBody.textContent = `By ${b.author} contains ${b.pages} pages ${b.read}`;
+    textBody.textContent = `By ${b.author} contains ${b.pages} pages`;
+
+    const readYetDisplay = document.createElement("p");
+    readYetDisplay.textContent = b.read ? readYet.yes : readYet.no;
 
     const removeButton = document.createElement("button");
     removeButton.textContent = "X";
@@ -44,6 +50,7 @@ function library() {
     // append the content elements to the container div
     box.appendChild(textHeading);
     box.appendChild(textBody);
+    box.appendChild(readYetDisplay);
     box.appendChild(removeButton);
 
     // add class names
@@ -56,6 +63,7 @@ function library() {
     bookshelf.appendChild(box);
   }
 
+  // add book to library
   function addBookToLibrary(x) {
     myLibrary.push(x);
   }
@@ -69,10 +77,12 @@ function library() {
   // book item creation button
   bookItemForm.submitButton.addEventListener("click", () => {
     // create book item from form input
+    const readValue = bookItemForm.readYetYes.checked ? "true" : "false";
     const newBook = new Book(
       bookItemForm.title.value,
       bookItemForm.author.value,
-      bookItemForm.pageCount.value
+      bookItemForm.pageCount.value,
+      readValue
     );
     // append book item to the DOM and add class
     addBookToLibrary(newBook);
@@ -86,12 +96,7 @@ function library() {
   });
 
   // test existing books
-  const theHobbit = new Book(
-    "The Hobbit",
-    "JRR Tolkien",
-    "295",
-    "already read."
-  );
+  const theHobbit = new Book("The Hobbit", "JRR Tolkien", "295", "true");
   addBookToLibrary(theHobbit);
 
   // append existing books into the DOM
